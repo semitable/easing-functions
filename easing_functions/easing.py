@@ -249,11 +249,11 @@ class BounceEaseOut(EasingBase):
             return (363 / 40.0 * t * t) - (99 / 10.0 * t) + 17 / 5.0
         elif t < 9 / 10:
             return (4356 / 361.0 * t * t) - (35442 / 1805.0 * t) + 16061 / 1805.0
-        return (54 / 5.0 * t * t) - (513 / 25.0 * t) + 268 / 25.0;
+        return (54 / 5.0 * t * t) - (513 / 25.0 * t) + 268 / 25.0
 
 
 class BounceEaseInOut(EasingBase):
     def func(self, t):
         if t < 0.5:
-            return 0.5 * BounceEaseIn().func(t * 2);
-        return 0.5 * BounceEaseOut().func(t * 2 - 1) + 0.5;
+            return 0.5 * BounceEaseIn().func(t * 2)
+        return 0.5 * BounceEaseOut().func(t * 2 - 1) + 0.5
