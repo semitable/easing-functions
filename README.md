@@ -1,0 +1,33 @@
+# easing-functions
+A collection of Penner's easing functions for python
+
+# To use:
+```python
+from easing import *
+
+# For a duration 10 you will get the relevant output from start to end
+a = QuadEaseInOut(start=0, end = 3, duration = 10)
+
+k = a.ease(4) # 4 is a number between 0 and the duration you specified
+
+#k is the returned value from start to end (0 to 3)
+
+# example plots:
+
+import numpy as np
+
+import matplotlib.pyplot as plt
+
+a = BounceEaseInOut(start=3, end=1, duration=1)
+b = BounceEaseIn(start=0, end=1)
+c = BounceEaseOut(start=0, end=1)
+
+x = np.arange(0, 1, 0.001)
+y0 = list(map(a.ease, x))
+y1 = list(map(b.ease, x))
+y2 = list(map(c.ease, x))
+
+plt.plot(x,y0)
+plt.plot(x,y1)
+plt.plot(x,y2)
+```
