@@ -1,6 +1,18 @@
 # easing-functions
 A collection of Penner's easing functions for python
 
+The collection includes the following ease in/ease out and ease inout:
+1. Quadratic
+2. Cubic
+3. Quartic
+4. Quintic
+5. Sine,
+6. Circular,
+7. Exponential,
+8. Elastic,
+9. Back,
+10. Bounce
+
 # To use:
 ```python
 from easing import *
