@@ -15,7 +15,7 @@ The collection includes the following ease in/ease out and ease inout:
 
 # To use:
 ```python
-from easing import *
+from easing_functions import *
 
 # For a duration 10 you will get the relevant output from start to end
 a = QuadEaseInOut(start=0, end = 3, duration = 10)
