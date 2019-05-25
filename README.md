@@ -1,22 +1,10 @@
 # easing-functions
-A collection of Penner's easing functions for python
+A collection of Penner's easing functions for Python
 
 The collection includes the following ease in/ease out and ease inout:
-1. Quadratic (Quad)
-2. Cubic
-3. Quartic
-4. Quintic
-5. Sine,
-6. Circular,
-7. Exponential,
-8. Elastic,
-9. Back,
-10. Bounce
-
-# Some Examples:
-![Cubic Ease](/docs/cubic.png?raw=true)
-![Bounce Ease](/docs/bounce.png?raw=true)
-![Back Ease](/docs/back.png?raw=true)
+```
+Quadratic (Quad), Cubic, Quartic, Quintic, Sine, Circular, Exponential, Elastic, Back, Bounce
+```
 
 # To install :
 ```shell
@@ -30,13 +18,10 @@ from easing_functions import *
 # For a duration 10 you will get the relevant output from start to end
 a = QuadEaseInOut(start=0, end = 3, duration = 10)
 k = a.ease(4) # 4 is a number between 0 and the duration you specified
-
 #k is the returned value from start to end (0 to 3)
 
 # example plots:
-
 import numpy as np
-
 import matplotlib.pyplot as plt
 
 a = BounceEaseInOut(start=3, end=1, duration=1)
@@ -52,3 +37,8 @@ plt.plot(x,y0)
 plt.plot(x,y1)
 plt.plot(x,y2)
 ```
+
+# Some Examples:
+![Cubic Ease](/docs/cubic.png?raw=true)
+![Bounce Ease](/docs/bounce.png?raw=true)
+![Back Ease](/docs/back.png?raw=true)
