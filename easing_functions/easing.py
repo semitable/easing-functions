@@ -21,6 +21,13 @@ class EasingBase:
 
 
 """
+Linear
+"""
+class LinearInOut(EasingBase):
+    def func(self, t):
+        return t
+
+"""
 Quadratic easing functions
 """
 

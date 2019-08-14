@@ -3,7 +3,7 @@ A collection of Penner's easing functions for Python
 
 The collection includes the following ease in/ease out and ease inout:
 ```
-Quadratic (Quad), Cubic, Quartic, Quintic, Sine, Circular, Exponential, Elastic, Back, Bounce
+Quadratic (Quad), Cubic, Quartic, Quintic, Sine, Circular, Exponential, Elastic, Back, Bounce, Linear
 ```
 
 # To install :
