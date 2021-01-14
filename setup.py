@@ -9,7 +9,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name="easing_functions",
-    version="1.0.3",
+    version="1.0.4",
     packages=["easing_functions"],
     url="https://github.com/semitable/easing-functions",
     license="GPL 3.0",
