@@ -19,6 +19,9 @@ class EasingBase:
         a = self.func(t)
         return self.end * a + self.start * (1 - a)
 
+    def __call__(self, alpha):
+        return self.ease(alpha)
+
 
 """
 Linear
