@@ -4,22 +4,21 @@ import math
 class EasingBase:
     limit = (0, 1)
 
-    def __init__(self, start=0, end=1, duration=1):
+    def __init__(self, start: float = 0, end: float = 1, duration: float = 1):
         self.start = start
         self.end = end
         self.duration = duration
 
-    @classmethod
-    def func(cls, t):
+    def func(self, t: float) -> float:
         raise NotImplementedError
 
-    def ease(self, alpha):
+    def ease(self, alpha: float) -> float:
         t = self.limit[0] * (1 - alpha) + self.limit[1] * alpha
         t /= self.duration
         a = self.func(t)
         return self.end * a + self.start * (1 - a)
 
-    def __call__(self, alpha):
+    def __call__(self, alpha: float) -> float:
         return self.ease(alpha)
 
 
@@ -27,7 +26,7 @@ class EasingBase:
 Linear
 """
 class LinearInOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return t
 
 """
@@ -36,19 +35,19 @@ Quadratic easing functions
 
 
 class QuadEaseInOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         if t < 0.5:
             return 2 * t * t
         return (-2 * t * t) + (4 * t) - 1
 
 
 class QuadEaseIn(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return t * t
 
 
 class QuadEaseOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return -(t * (t - 2))
 
 
@@ -58,17 +57,17 @@ Cubic easing functions
 
 
 class CubicEaseIn(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return t * t * t
 
 
 class CubicEaseOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return (t - 1) * (t - 1) * (t - 1) + 1
 
 
 class CubicEaseInOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         if t < 0.5:
             return 4 * t * t * t
         p = 2 * t - 2
@@ -81,17 +80,17 @@ Quartic easing functions
 
 
 class QuarticEaseIn(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return t * t * t * t
 
 
 class QuarticEaseOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return (t - 1) * (t - 1) * (t - 1) * (1 - t) + 1
 
 
 class QuarticEaseInOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         if t < 0.5:
             return 8 * t * t * t * t
         p = t - 1
@@ -104,17 +103,17 @@ Quintic easing functions
 
 
 class QuinticEaseIn(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return t * t * t * t * t
 
 
 class QuinticEaseOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return (t - 1) * (t - 1) * (t - 1) * (t - 1) * (t - 1) + 1
 
 
 class QuinticEaseInOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         if t < 0.5:
             return 16 * t * t * t * t * t
         p = (2 * t) - 2
@@ -127,17 +126,17 @@ Sine easing functions
 
 
 class SineEaseIn(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return math.sin((t - 1) * math.pi / 2) + 1
 
 
 class SineEaseOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return math.sin(t * math.pi / 2)
 
 
 class SineEaseInOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return 0.5 * (1 - math.cos(t * math.pi))
 
 
@@ -147,17 +146,17 @@ Circular easing functions
 
 
 class CircularEaseIn(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return 1 - math.sqrt(1 - (t * t))
 
 
 class CircularEaseOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return math.sqrt((2 - t) * t)
 
 
 class CircularEaseInOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         if t < 0.5:
             return 0.5 * (1 - math.sqrt(1 - 4 * (t * t)))
         return 0.5 * (math.sqrt(-((2 * t) - 3) * ((2 * t) - 1)) + 1)
@@ -169,21 +168,21 @@ Exponential easing functions
 
 
 class ExponentialEaseIn(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         if t == 0:
             return 0
         return math.pow(2, 10 * (t - 1))
 
 
 class ExponentialEaseOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         if t == 1:
             return 1
         return 1 - math.pow(2, -10 * t)
 
 
 class ExponentialEaseInOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         if t == 0 or t == 1:
             return t
 
@@ -198,17 +197,17 @@ Elastic Easing Functions
 
 
 class ElasticEaseIn(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return math.sin(13 * math.pi / 2 * t) * math.pow(2, 10 * (t - 1))
 
 
 class ElasticEaseOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return math.sin(-13 * math.pi / 2 * (t + 1)) * math.pow(2, -10 * t) + 1
 
 
 class ElasticEaseInOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         if t < 0.5:
             return (
                 0.5
@@ -228,18 +227,18 @@ Back Easing Functions
 
 
 class BackEaseIn(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return t * t * t - t * math.sin(t * math.pi)
 
 
 class BackEaseOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         p = 1 - t
         return 1 - (p * p * p - p * math.sin(p * math.pi))
 
 
 class BackEaseInOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         if t < 0.5:
             p = 2 * t
             return 0.5 * (p * p * p - p * math.sin(p * math.pi))
@@ -255,12 +254,12 @@ Bounce Easing Functions
 
 
 class BounceEaseIn(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         return 1 - BounceEaseOut().func(1 - t)
 
 
 class BounceEaseOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         if t < 4 / 11:
             return 121 * t * t / 16
         elif t < 8 / 11:
@@ -271,7 +270,7 @@ class BounceEaseOut(EasingBase):
 
 
 class BounceEaseInOut(EasingBase):
-    def func(self, t):
+    def func(self, t: float) -> float:
         if t < 0.5:
             return 0.5 * BounceEaseIn().func(t * 2)
         return 0.5 * BounceEaseOut().func(t * 2 - 1) + 0.5
